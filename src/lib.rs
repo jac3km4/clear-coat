@@ -115,7 +115,7 @@ pub mod common_attrs_cbs {
         ValueChangedCallback,
         MotionArgs,
         WheelArgs,
-        CanvasCallbacks,
+        // CanvasCallbacks,
         ResizeCallback,
     };
 }
@@ -215,10 +215,16 @@ fn iup_open() {
 
 static THREAD_ID: AtomicIsize = ATOMIC_ISIZE_INIT;
 
+#[cfg(windows)]
 fn check_thread() {
     let thread_id = get_thread_id();
     let prev = THREAD_ID.compare_and_swap(0, thread_id, Ordering::SeqCst);
     assert!(prev == 0 || prev == thread_id, "IUP/Clear Coat functions must be called from a single thread");
+}
+
+#[cfg(unix)]
+fn check_thread() {
+    // FIXME: check pid
 }
 
 // Part of the contract of implementing this trait is that no invalid handle

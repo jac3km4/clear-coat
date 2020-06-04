@@ -83,6 +83,7 @@ impl LineGraph {
         }));
 
         let data2 = data.clone();
+        #[cfg(all(windows, feature = "cairo"))]
         canvas.action_event().add(move |args: &CanvasActionArgs|
             LineGraph(data2.clone()).when_painting(args)
         );

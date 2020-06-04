@@ -566,6 +566,7 @@ pub struct WheelArgs {
     _dummy: (),
 }
 
+#[cfg(all(windows, feature = "cairo"))]
 impl_callbacks! {
     trait CanvasCallbacks {
         "ACTION\0" => action_event {

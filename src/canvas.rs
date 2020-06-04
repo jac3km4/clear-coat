@@ -40,5 +40,5 @@ impl MenuCommonCallbacks for Canvas {}
 impl GetKillFocusCallbacks for Canvas {}
 impl EnterLeaveWindowCallbacks for Canvas {}
 impl ButtonCallback for Canvas {}
-impl CanvasCallbacks for Canvas {}
+// impl CanvasCallbacks for Canvas {}
 impl ResizeCallback for Canvas {}

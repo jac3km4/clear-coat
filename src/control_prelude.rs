@@ -49,7 +49,7 @@ pub use super::callbacks::{
     GetKillFocusCallbacks,
     ButtonCallback,
     ValueChangedCallback,
-    CanvasCallbacks,
+    // CanvasCallbacks,
     ResizeCallback,
     Event,
     Token,
